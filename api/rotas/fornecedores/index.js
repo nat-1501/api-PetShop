@@ -4,6 +4,7 @@ const Fornecedor = require('./Fornecedor')
 
 roteador.get('/', async (requisicao, resposta) => {
     const resultados = await TabelaFornecedor.listar()
+    resposta.status(200)
     resposta.send(
         JSON.stringify(resultados)
     )
@@ -15,6 +16,7 @@ roteador.post('/', async (requisicao, resposta) => {
     const fornecedor = new Fornecedor(dadosRecebidos) 
     await fornecedor.criar()
     resposta.send(
+        resposta.status(201)
         JSON.stringify(fornecedor)
         ) 
     }catch (erro) {
@@ -54,7 +56,9 @@ roteador.put('/:idFornecedor', async (requisicao, resposta) => {
     const dados = Object.assign({}, dadosRecebidos, { id: id })
     const fornecedor = new Fornecedor(dados)
     await fornecedor.atualizar()
-    resposta.end()
+    resposta.status(204)
+    resposta.send()
+    
 
     } catch (erro) {
         resposta.send(
