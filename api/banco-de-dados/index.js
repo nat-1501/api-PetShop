@@ -10,4 +10,5 @@ const instancia = new Sequelize(
         dialect: 'mysql'
     }
 )
+
 module.exports = instancia

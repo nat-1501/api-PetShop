@@ -8,13 +8,12 @@ const colunas = {
     },
     email: {
         type: Sequelize.STRING,
-        allowNull:false
+        allowNull: false
     },
     categoria: {
         type: Sequelize.ENUM('ração', 'brinquedos'),
         allowNull: false
     }
-
 }
 
 const opcoes = {
@@ -26,4 +25,4 @@ const opcoes = {
     version: 'versao'
 }
 
-module.exports = instancia.define('fornecedor', colunas, opcoes) 
+module.exports = instancia.define('fornecedor', colunas, opcoes)
