@@ -2,6 +2,9 @@ const roteador = require('express').Router()
 const TabelaFornecedor = require('./TabelaFornecedor')
 const Fornecedor = require('./Fornecedor')
 const SerializadorFornecedor = require('../../Serializador').SerializadorFornecedor
+const roteadorProdutos = require('./produtos')
+
+roteador.use('/:idFornecedor/produtos', roteadorProdutos)
 
 roteador.get('/', async (requisicao, resposta) => {
     const resultados = await TabelaFornecedor.listar()
